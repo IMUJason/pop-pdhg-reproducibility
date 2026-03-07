@@ -1,0 +1,15 @@
+# Core dependencies for Pop-PDHG reproducibility package
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Solver dependencies
+gurobipy>=11.0.0
+
+# Optional: for faster computation
+# jax[cpu]>=0.4.20
+
+# Visualization (for generating figures)
+matplotlib>=3.8.0
+
+# Utilities
+tqdm>=4.65.0  # For progress bars

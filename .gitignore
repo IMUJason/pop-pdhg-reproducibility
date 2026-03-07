@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Results
+results/*.json
+results/*.txt
+*.log
+
+# Data (large files)
+data/*.mps
+data/*.lp
+data/*.mps.gz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gurobi
+*.ilp
+*.sol
+*.mst
+*.prm
