@@ -29,19 +29,8 @@ experiments/figures/*.pdf
 experiments/figures/*.png
 experiments/results/_smoke_*
 
-# LaTeX build artifacts
-paper/elsarticle/*.aux
-paper/elsarticle/*.bbl
-paper/elsarticle/*.blg
-paper/elsarticle/*.fdb_latexmk
-paper/elsarticle/*.fls
-paper/elsarticle/*.log
-paper/elsarticle/*.out
-paper/elsarticle/*.spl
-paper/elsarticle/main.pdf
-paper/elsarticle/main_blind.pdf
-paper/elsarticle/submission/final_package/
-paper/elsarticle/submission/*.zip
+# Manuscript assets are maintained outside this repository
+paper/
 
 # Local archive / scratch
 legacy/

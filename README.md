@@ -1,10 +1,9 @@
 # HP-PDHG Plan 1 Reproducibility Repository
 
-This directory is the minimal reproducibility workspace for the Plan 1 paper and codebase. It contains:
+This directory is the minimal reproducibility workspace for the Plan 1 codebase. It contains:
 
 - the current solver implementation in `src/`
 - the experiment scripts and archived result tables in `experiments/`
-- the paper source in `paper/elsarticle/`
 - lightweight tests in `tests/`
 
 Official MIPLIB instances are **not version-controlled** in this repository. Readers can download them from the official MIPLIB website and place them in the expected local directories with the helper script in `data/prepare_repro_data.py`.
@@ -26,7 +25,7 @@ Official MIPLIB instances are **not version-controlled** in this repository. Rea
 │   ├── miplib2017/         # main benchmark data directory
 │   └── miplib2017_sec/     # official 12-instance extension directory
 ├── tests/
-└── paper/elsarticle/       # current paper source
+└── tests/
 ```
 
 ## Environment setup
@@ -117,18 +116,10 @@ uv run python experiments/scripts/run_sec_metaheuristics.py \
   --manifest experiments/results/sec_selected_instances.json
 ```
 
-### 6. Compile the manuscript
-
-```bash
-cd paper/elsarticle
-latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-```
-
 ## Notes on reproducibility
 
 - The archived `experiments/results/` files are the result tables and JSON/CSV artifacts used to build the current manuscript figures.
-- The figure-generation script used by the paper lives in `paper/elsarticle/figures/make_figures.py`.
-- The manuscript entry point is `paper/elsarticle/main.tex`.
+- The manuscript files are maintained outside this Git repository to avoid accidental inclusion in code releases.
 - The current paper uses the ESWA-oriented framing, but the underlying implementation still contains some legacy names such as `Quantum Pop-PDHG` in code and archived results for continuity.
 
 ## Suggested starting points
@@ -137,4 +128,3 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 - audited benchmark: `experiments/scripts/run_main_benchmark_robustness.py`
 - official extension: `experiments/scripts/run_sec_extended_benchmark.py`
 - metaheuristic comparison: `experiments/scripts/run_sec_metaheuristics.py`
-- manuscript source: `paper/elsarticle/main.tex`
