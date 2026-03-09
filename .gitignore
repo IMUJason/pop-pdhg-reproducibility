@@ -39,7 +39,7 @@ paper/elsarticle/*.log
 paper/elsarticle/*.out
 paper/elsarticle/*.spl
 paper/elsarticle/main.pdf
-paper/elsarticle/submission/
+paper/elsarticle/main_blind.pdf
 paper/elsarticle/submission/final_package/
 paper/elsarticle/submission/*.zip
 

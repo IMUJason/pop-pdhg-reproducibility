@@ -32,24 +32,14 @@
 \newtheorem{remark}[theorem]{Remark}
 
 \newif\ifanonymized
-\anonymizedfalse
-% Use main_blind.tex for double-blind review compilation.
+\anonymizedtrue
 
 \begin{document}
 
 \begin{frontmatter}
 
 \title{A Hybrid Population PDHG Heuristic\\ for Feasibility Recovery in Mixed-Integer Programming}
-\ifanonymized
 \author{Anonymous Author(s)}
-\else
-\author[a,b]{Jin Xin Cao\corref{cor1}\fnref{orcid1}}
-\cortext[cor1]{Corresponding author.}
-\fntext[orcid1]{ORCID: \href{https://orcid.org/0000-0001-5768-8190}{0000-0001-5768-8190}.}
-\ead{cjx@imu.edu.cn}
-\address[a]{Inner Mongolia Academy of Science and Technology, Hohhot 010010, China}
-\address[b]{Institute of Transportation Engineering, Inner Mongolia University, Hohhot 010010, China}
-\fi
 
 \begin{graphicalabstract}
 \centering
@@ -95,16 +85,7 @@ Mixed-integer programming \sep primal heuristics \sep first-order methods \sep p
 \input{sections/conclusion}
 
 \section*{Code and data availability}
-\ifanonymized
 The benchmark instances and official reference values used in this study are publicly available from the MIPLIB archives. An anonymized code snapshot, audit scripts, processed result files, and manuscript source can be provided for editorial inspection during peer review, and a public archival repository will be released after the review process is completed.
-\else
-The reproducibility repository for this study is publicly available at \url{https://github.com/IMUJason/pop-pdhg-reproducibility}. It contains the solver implementation, experiment scripts, processed result files, and manuscript source. Official MIP benchmark instances are not redistributed in the repository; they can be downloaded from the public MIPLIB archives using the helper script \texttt{data/prepare\_repro\_data.py}, with the audited main instances obtained from \url{https://miplib2010.zib.de} and the extension subset obtained from \url{https://miplib.zib.de}.
-\fi
-
-\ifanonymized\else
-\section*{Acknowledgements}
-This work was supported in part by the National Natural Science Foundation of China under Grant 72461028, Grant 71961024, and in part by the Key Technology Research Plan of Inner Mongolia Autonomous Region under Grant 2019GG287.
-\fi
 
 \section*{Declaration of competing interest}
 The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
