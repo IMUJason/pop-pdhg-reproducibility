@@ -1,0 +1,299 @@
+{
+  "extended": {
+    "wilcoxon_quantum_less_than_standard": {
+      "statistic": 9.0,
+      "p_value": 0.0322265625
+    },
+    "paired_rows": [
+      {
+        "instance_name": "neos-3046615-murg",
+        "standard_mean_primal_violation": 53.6,
+        "quantum_mean_primal_violation": 20.0,
+        "quantum_violation_reduction_pct": 62.68656716417911,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "glass4",
+        "standard_mean_primal_violation": 300000.0,
+        "quantum_mean_primal_violation": 300000.0,
+        "quantum_violation_reduction_pct": 0.0,
+        "winner": "tie"
+      },
+      {
+        "instance_name": "neos-2657525-crna",
+        "standard_mean_primal_violation": 5712.4,
+        "quantum_mean_primal_violation": 2650.8,
+        "quantum_violation_reduction_pct": 53.595686576570266,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "ic97_potential",
+        "standard_mean_primal_violation": 33.92299154495705,
+        "quantum_mean_primal_violation": 34.94080568801381,
+        "quantum_violation_reduction_pct": -3.0003667032369017,
+        "winner": "standard_better"
+      },
+      {
+        "instance_name": "cod105",
+        "standard_mean_primal_violation": 0.0,
+        "quantum_mean_primal_violation": 0.0,
+        "quantum_violation_reduction_pct": 0.0,
+        "winner": "tie"
+      },
+      {
+        "instance_name": "gmu-35-40",
+        "standard_mean_primal_violation": 19.51819786777297,
+        "quantum_mean_primal_violation": 13.54038499346076,
+        "quantum_violation_reduction_pct": 30.626868908744587,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "neos-4954672-berkel",
+        "standard_mean_primal_violation": 7287.870178857574,
+        "quantum_mean_primal_violation": 7213.419204201135,
+        "quantum_violation_reduction_pct": 1.0215738319876295,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "mcsched",
+        "standard_mean_primal_violation": 934.8012325964122,
+        "quantum_mean_primal_violation": 1069.4845369182847,
+        "quantum_violation_reduction_pct": -14.407694344581612,
+        "winner": "standard_better"
+      },
+      {
+        "instance_name": "gmu-35-50",
+        "standard_mean_primal_violation": 14.361541430510337,
+        "quantum_mean_primal_violation": 10.2984866196806,
+        "quantum_violation_reduction_pct": 28.291216722725814,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "50v-10",
+        "standard_mean_primal_violation": 148.1377590716266,
+        "quantum_mean_primal_violation": 136.1086075630725,
+        "quantum_violation_reduction_pct": 8.120246710859071,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "p200x1188c",
+        "standard_mean_primal_violation": 2583.022320916821,
+        "quantum_mean_primal_violation": 471.3805952175795,
+        "quantum_violation_reduction_pct": 81.7508121629291,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "beasleyC3",
+        "standard_mean_primal_violation": 21.717803405501712,
+        "quantum_mean_primal_violation": 15.815400322927648,
+        "quantum_violation_reduction_pct": 27.177716697991773,
+        "winner": "quantum_better"
+      }
+    ],
+    "quantum_better_instances": 8,
+    "standard_better_instances": 2,
+    "ties": 2
+  },
+  "meta": {
+    "friedman_test": {
+      "statistic": 6.467181467181471,
+      "p_value": 0.26337514060570577
+    },
+    "average_ranks": [
+      {
+        "solver": "shade",
+        "average_rank": 2.5,
+        "mean_primal_violation": 814749.536291154
+      },
+      {
+        "solver": "quantum_pdhg",
+        "average_rank": 2.6875,
+        "mean_primal_violation": 38890.67311604431
+      },
+      {
+        "solver": "standard_pdhg",
+        "average_rank": 3.6875,
+        "mean_primal_violation": 39255.26407484128
+      },
+      {
+        "solver": "slpso",
+        "average_rank": 3.875,
+        "mean_primal_violation": 149778.89336623898
+      },
+      {
+        "solver": "ga",
+        "average_rank": 4.125,
+        "mean_primal_violation": 1190094.583241837
+      },
+      {
+        "solver": "de",
+        "average_rank": 4.125,
+        "mean_primal_violation": 4915555.769709106
+      }
+    ],
+    "pairwise_quantum_vs_baselines": [
+      {
+        "baseline_solver": "ga",
+        "statistic": 12.0,
+        "p_value": 0.23046875,
+        "quantum_mean_violation": 38890.67311604431,
+        "baseline_mean_violation": 1190094.583241837,
+        "holm_adjusted_p": 0.875
+      },
+      {
+        "baseline_solver": "de",
+        "statistic": 11.0,
+        "p_value": 0.34375,
+        "quantum_mean_violation": 38890.67311604431,
+        "baseline_mean_violation": 4915555.769709106,
+        "holm_adjusted_p": 0.875
+      },
+      {
+        "baseline_solver": "slpso",
+        "statistic": 7.0,
+        "p_value": 0.1484375,
+        "quantum_mean_violation": 38890.67311604431,
+        "baseline_mean_violation": 149778.89336623898,
+        "holm_adjusted_p": 0.7421875
+      },
+      {
+        "baseline_solver": "shade",
+        "statistic": 15.0,
+        "p_value": 0.59375,
+        "quantum_mean_violation": 38890.67311604431,
+        "baseline_mean_violation": 814749.536291154,
+        "holm_adjusted_p": 0.875
+      },
+      {
+        "baseline_solver": "standard_pdhg",
+        "statistic": 6.0,
+        "p_value": 0.21875,
+        "quantum_mean_violation": 38890.67311604431,
+        "baseline_mean_violation": 39255.26407484128,
+        "holm_adjusted_p": 0.875
+      }
+    ],
+    "per_instance_ranks": [
+      {
+        "instance_name": "cod105",
+        "ga_mean_primal_violation": 0.2,
+        "ga_rank": 6.0,
+        "de_mean_primal_violation": 0.0,
+        "de_rank": 3.0,
+        "slpso_mean_primal_violation": 0.0,
+        "slpso_rank": 3.0,
+        "shade_mean_primal_violation": 0.0,
+        "shade_rank": 3.0,
+        "standard_pdhg_mean_primal_violation": 0.0,
+        "standard_pdhg_rank": 3.0,
+        "quantum_pdhg_mean_primal_violation": 0.0,
+        "quantum_pdhg_rank": 3.0
+      },
+      {
+        "instance_name": "glass4",
+        "ga_mean_primal_violation": 9512908.224032078,
+        "ga_rank": 5.0,
+        "de_mean_primal_violation": 39314531.78426604,
+        "de_rank": 6.0,
+        "slpso_mean_primal_violation": 1169976.5677512032,
+        "slpso_rank": 3.0,
+        "shade_mean_primal_violation": 6512068.895297784,
+        "shade_rank": 4.0,
+        "standard_pdhg_mean_primal_violation": 300000.0,
+        "standard_pdhg_rank": 1.5,
+        "quantum_pdhg_mean_primal_violation": 300000.0,
+        "quantum_pdhg_rank": 1.5
+      },
+      {
+        "instance_name": "gmu-35-40",
+        "ga_mean_primal_violation": 107.51226958200148,
+        "ga_rank": 5.0,
+        "de_mean_primal_violation": 64.45114157860475,
+        "de_rank": 4.0,
+        "slpso_mean_primal_violation": 17257.133811852393,
+        "slpso_rank": 6.0,
+        "shade_mean_primal_violation": 30.800706661937532,
+        "shade_rank": 3.0,
+        "standard_pdhg_mean_primal_violation": 19.518197867646737,
+        "standard_pdhg_rank": 2.0,
+        "quantum_pdhg_mean_primal_violation": 13.540385033483478,
+        "quantum_pdhg_rank": 1.0
+      },
+      {
+        "instance_name": "ic97_potential",
+        "ga_mean_primal_violation": 54.26644116817366,
+        "ga_rank": 5.0,
+        "de_mean_primal_violation": 57.28041113925161,
+        "de_rank": 6.0,
+        "slpso_mean_primal_violation": 53.939192077394665,
+        "slpso_rank": 4.0,
+        "shade_mean_primal_violation": 41.15746347564572,
+        "shade_rank": 3.0,
+        "standard_pdhg_mean_primal_violation": 33.92299148829732,
+        "standard_pdhg_rank": 1.0,
+        "quantum_pdhg_mean_primal_violation": 34.94080569430113,
+        "quantum_pdhg_rank": 2.0
+      },
+      {
+        "instance_name": "mcsched",
+        "ga_mean_primal_violation": 236.93191161305737,
+        "ga_rank": 3.0,
+        "de_mean_primal_violation": 62.13496007966787,
+        "de_rank": 1.0,
+        "slpso_mean_primal_violation": 424.0258656226657,
+        "slpso_rank": 4.0,
+        "shade_mean_primal_violation": 107.34413387494405,
+        "shade_rank": 2.0,
+        "standard_pdhg_mean_primal_violation": 934.8012325964122,
+        "standard_pdhg_rank": 5.0,
+        "quantum_pdhg_mean_primal_violation": 1069.4845369182847,
+        "quantum_pdhg_rank": 6.0
+      },
+      {
+        "instance_name": "neos-2657525-crna",
+        "ga_mean_primal_violation": 4000.0,
+        "ga_rank": 4.0,
+        "de_mean_primal_violation": 3200.0,
+        "de_rank": 3.0,
+        "slpso_mean_primal_violation": 5600.0,
+        "slpso_rank": 5.0,
+        "shade_mean_primal_violation": 1886.8,
+        "shade_rank": 1.0,
+        "standard_pdhg_mean_primal_violation": 5712.4,
+        "standard_pdhg_rank": 6.0,
+        "quantum_pdhg_mean_primal_violation": 2774.0,
+        "quantum_pdhg_rank": 2.0
+      },
+      {
+        "instance_name": "neos-3046615-murg",
+        "ga_mean_primal_violation": 52.8,
+        "ga_rank": 4.0,
+        "de_mean_primal_violation": 59.4,
+        "de_rank": 6.0,
+        "slpso_mean_primal_violation": 47.0,
+        "slpso_rank": 3.0,
+        "shade_mean_primal_violation": 46.6,
+        "shade_rank": 2.0,
+        "standard_pdhg_mean_primal_violation": 53.6,
+        "standard_pdhg_rank": 5.0,
+        "quantum_pdhg_mean_primal_violation": 20.0,
+        "quantum_pdhg_rank": 1.0
+      },
+      {
+        "instance_name": "neos-4954672-berkel",
+        "ga_mean_primal_violation": 3396.7312802564143,
+        "ga_rank": 1.0,
+        "de_mean_primal_violation": 6471.10689400276,
+        "de_rank": 4.0,
+        "slpso_mean_primal_violation": 4872.480309156101,
+        "slpso_rank": 3.0,
+        "shade_mean_primal_violation": 3814.6927274354807,
+        "shade_rank": 2.0,
+        "standard_pdhg_mean_primal_violation": 7287.870176777933,
+        "standard_pdhg_rank": 6.0,
+        "quantum_pdhg_mean_primal_violation": 7213.419200708392,
+        "quantum_pdhg_rank": 5.0
+      }
+    ]
+  }
+}

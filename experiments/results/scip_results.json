@@ -1,0 +1,68 @@
+[
+  {
+    "instance": "assignment_50x50",
+    "solver": "scip",
+    "status": "optimal",
+    "objective": 0.0,
+    "solve_time": 0.002315624999027932,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": null,
+    "iterations": null
+  },
+  {
+    "instance": "knapsack_50",
+    "solver": "scip",
+    "status": "optimal",
+    "objective": -2051.0,
+    "solve_time": 0.00023549999968963675,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": null,
+    "iterations": null
+  },
+  {
+    "instance": "p0033",
+    "solver": "scip",
+    "status": "optimal",
+    "objective": -68.0,
+    "solve_time": 0.00027562499963096343,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": null,
+    "iterations": null
+  },
+  {
+    "instance": "p0201",
+    "solver": "scip",
+    "status": "optimal",
+    "objective": -226.0,
+    "solve_time": 0.021240750000288244,
+    "node_count": 1,
+    "gap": 0.0,
+    "lp_relaxation": null,
+    "iterations": null
+  },
+  {
+    "instance": "p0282",
+    "solver": "scip",
+    "status": "optimal",
+    "objective": -7899.413179214346,
+    "solve_time": 0.00884629199936171,
+    "node_count": 1,
+    "gap": 0.0,
+    "lp_relaxation": null,
+    "iterations": null
+  },
+  {
+    "instance": "setcover_50x200",
+    "solver": "scip",
+    "status": "optimal",
+    "objective": 0.0,
+    "solve_time": 0.00034170799699495547,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": null,
+    "iterations": null
+  }
+]

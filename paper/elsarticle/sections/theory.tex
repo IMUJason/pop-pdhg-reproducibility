@@ -1,0 +1,97 @@
+This section provides analytical results that clarify why the proposed components work well together. Our purpose is not to claim a full worst-case convergence theory for general MIP, which would be unrealistic for a heuristic method, but to formalize the design principles behind the population, barrier-crossing, and integrality-projection mechanisms.
+
+\subsection{Population Coverage of Near-Feasible Regions}
+
+\begin{proposition}[Population amplification]
+\label{prop:population}
+Assume that, after a fixed budget of relaxation iterations, a single randomly initialized trajectory reaches an $\epsilon$-feasible region $\mathcal{F}_\epsilon = \{x : \operatorname{gap}(x) \leq \epsilon\}$ with probability $p_\epsilon \in (0,1)$. If $K$ trajectories are initialized independently, then the probability that at least one population member reaches $\mathcal{F}_\epsilon$ is
+\begin{equation}
+    1 - (1 - p_\epsilon)^K.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The probability that a single member does not reach $\mathcal{F}_\epsilon$ is $1-p_\epsilon$. Under independence, the probability that all $K$ members fail is $(1-p_\epsilon)^K$. Taking the complement gives the claim.
+\end{proof}
+
+Proposition~\ref{prop:population} formalizes the intuitive benefit of maintaining a population rather than a single PDHG trajectory. Even when the success probability of an individual run is modest, the chance that at least one candidate approaches the discrete feasible set grows rapidly with $K$. This does not by itself solve the feasibility problem, but it provides a principled reason to combine PDHG with ensemble search.
+
+\subsection{Barrier-Sensitive Non-Local Acceptance}
+
+Our tunneling rule uses the acceptance model
+\begin{equation}
+\label{eq:wkb-accept}
+    P_{\mathrm{tunnel}}(x \to x') = \exp\left(-\Gamma \|x' - x\| \sqrt{\max(\Delta E, 0)}\right),
+\end{equation}
+where $\Delta E = E(x') - E(x)$ and $E$ is the penalized energy defined by the objective, constraint violation, and non-integrality terms. Any one-dimensional plot of this rule therefore represents a fixed-width slice in which $\Gamma\|x'-x\|$ is absorbed into the horizontal scaling.
+
+\begin{proposition}[Monotonicity of tunneling acceptance]
+\label{prop:wkb}
+For fixed $\Gamma > 0$, the acceptance probability in \eqref{eq:wkb-accept} is monotonically decreasing in both the proposed jump length $\|x'-x\|$ and the uphill energy increment $\Delta E$ whenever $\Delta E \geq 0$.
+\end{proposition}
+
+\begin{proof}
+The exponent in \eqref{eq:wkb-accept} is $-\Gamma \|x'-x\| \sqrt{\Delta E}$. For nonnegative $\Delta E$, increasing either factor makes the exponent more negative, hence the exponential value smaller.
+\end{proof}
+
+The proposition captures the essential WKB-style intuition that thin, low barriers are easier to cross than wide, high barriers. In the optimization setting, this means that non-local exploration is permitted, but not indiscriminately: proposals that move too far or increase the penalized energy too sharply are exponentially suppressed. If an acceptance probability $p$ is maintained over $N$ attempts, the escape probability from a local basin becomes $1-(1-p)^N$, which explains why repeated moderate-risk jumps can be effective even when any single attempt is uncertain.
+
+\subsection{Progressive Integrality Projection Contracts the Integrality Residual}
+
+For an integer-constrained coordinate $x_j$, define the soft-rounding operator
+\begin{equation}
+\label{eq:soft-round}
+    M_\lambda(x_j) = (1-\lambda)x_j + \lambda \operatorname{round}(x_j),
+    \qquad \lambda \in [0,1].
+\end{equation}
+This interpolates continuously between the fractional value and its nearest integer.
+
+\begin{theorem}[Soft-rounding contraction]
+\label{thm:measurement}
+For every integer-constrained coordinate $x_j$ and every $\lambda \in [0,1]$,
+\begin{equation}
+    \operatorname{dist}(M_\lambda(x_j), \mathbb{Z}) = (1-\lambda)\operatorname{dist}(x_j, \mathbb{Z}).
+\end{equation}
+Consequently, if $M_\lambda$ is applied componentwise to the integer-constrained coordinates, then
+\begin{equation}
+    \phi(M_\lambda(x)) = (1-\lambda)\phi(x).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The nearest integer to $M_\lambda(x_j)$ is the same as the nearest integer to $x_j$, namely $\operatorname{round}(x_j)$. Therefore
+\begin{equation}
+    |M_\lambda(x_j) - \operatorname{round}(x_j)|
+    = |(1-\lambda)(x_j - \operatorname{round}(x_j))|
+    = (1-\lambda)\operatorname{dist}(x_j, \mathbb{Z}).
+\end{equation}
+Summing over $j \in \mathcal{I}$ yields the vector statement.
+\end{proof}
+
+Theorem~\ref{thm:measurement} explains why a gradually increasing projection strength is preferable to abrupt rounding. Early iterations can keep $\lambda$ small so that PDHG continues exploring the relaxation, while later iterations can drive $\phi(x)$ rapidly toward zero. The repair stage is then tasked with recovering primal feasibility for the small violations introduced by this controlled contraction.
+
+\subsection{Feasibility Preservation and Complexity}
+
+\begin{proposition}[Incumbent feasibility preservation]
+\label{prop:repair}
+Suppose the algorithm updates its incumbent only with candidates that satisfy the bound constraints, the linear inequalities, and the integrality checks. Then every incumbent reported at termination is feasible for the original MIP.
+\end{proposition}
+
+\begin{proof}
+The statement follows immediately from the acceptance rule. The incumbent set is initialized either as empty or with a verified feasible point and is updated only after explicit verification of bounds, inequalities, and integrality. By induction over accepted updates, every stored incumbent is feasible.
+\end{proof}
+
+\begin{proposition}[Per-iteration complexity]
+\label{prop:complexity}
+Let $K$ be the population size and $\operatorname{nnz}(A)$ the number of nonzero entries of the constraint matrix. One population iteration of HP-PDHG has cost
+\begin{equation}
+    \mathcal{O}\!\left(K \, \operatorname{nnz}(A)\right),
+\end{equation}
+up to lower-order terms for rounding, bookkeeping, and light-weight repair heuristics.
+\end{proposition}
+
+\begin{proof}
+The dominant cost comes from the sparse products $Ax$ and $A^T y$ required by PDHG for each population member, each costing $\mathcal{O}(\operatorname{nnz}(A))$. Soft rounding on integer variables is linear in $|\mathcal{I}|$, and acceptance bookkeeping is linear in $n$. Summing over $K$ members gives the stated complexity.
+\end{proof}
+
+Taken together, these results justify the overall architecture. Population search raises the probability of discovering promising regions, WKB-inspired acceptance biases non-local moves toward traversable barriers, progressive integrality projection contracts the integrality residual in a controlled way, and repair plus incumbent screening ensures that the final reported solution remains feasible.

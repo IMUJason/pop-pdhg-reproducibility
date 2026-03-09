@@ -1,0 +1,205 @@
+{
+  "suite": "paper",
+  "config": {
+    "max_iter": 1000,
+    "population_size": 16,
+    "time_limit": 300,
+    "tol": 1e-06,
+    "n_runs": 3,
+    "verbose": false
+  },
+  "results": [
+    {
+      "instance_name": "p0033",
+      "n_variables": 33,
+      "n_constraints": 16,
+      "n_integer_vars": 33,
+      "gurobi_result": {
+        "solver": "gurobi",
+        "obj_value": -68.0,
+        "time_seconds": 0.004088878631591797,
+        "iterations": 0.0,
+        "status": "optimal",
+        "is_feasible": true,
+        "primal_violation": 0.0,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 0.0
+      },
+      "standard_pdhg_result": {
+        "solver": "standard_pdhg",
+        "obj_value": -86.0,
+        "time_seconds": 0.369265079498291,
+        "iterations": 1000,
+        "status": "max_iter",
+        "is_feasible": false,
+        "primal_violation": 1.44089662206689,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": -26.47058823529412
+      },
+      "quantum_pdhg_result": {
+        "solver": "quantum_pdhg",
+        "obj_value": -68.0,
+        "time_seconds": 0.47322702407836914,
+        "iterations": 1000,
+        "status": "max_iter",
+        "is_feasible": true,
+        "primal_violation": 0.0,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 0.0
+      },
+      "summary": {
+        "gurobi_obj": -68.0,
+        "standard_obj": -86.0,
+        "quantum_obj": -68.0,
+        "standard_feas": false,
+        "quantum_feas": true,
+        "standard_gap": -26.47058823529412,
+        "quantum_gap": 0.0
+      }
+    },
+    {
+      "instance_name": "p0201",
+      "n_variables": 201,
+      "n_constraints": 120,
+      "n_integer_vars": 201,
+      "gurobi_result": {
+        "solver": "gurobi",
+        "obj_value": -226.0,
+        "time_seconds": 0.0074727535247802734,
+        "iterations": 77.0,
+        "status": "optimal",
+        "is_feasible": true,
+        "primal_violation": 0.0,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 0.0
+      },
+      "standard_pdhg_result": {
+        "solver": "standard_pdhg",
+        "obj_value": -239.0,
+        "time_seconds": 2.0796031951904297,
+        "iterations": 1000,
+        "status": "max_iter",
+        "is_feasible": false,
+        "primal_violation": 1.8987937360988099,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": -5.752212389380531
+      },
+      "quantum_pdhg_result": {
+        "solver": "quantum_pdhg",
+        "obj_value": -221.0,
+        "time_seconds": 2.7070910930633545,
+        "iterations": 1000,
+        "status": "max_iter",
+        "is_feasible": true,
+        "primal_violation": 0.0,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 2.2123893805309733
+      },
+      "summary": {
+        "gurobi_obj": -226.0,
+        "standard_obj": -239.0,
+        "quantum_obj": -221.0,
+        "standard_feas": false,
+        "quantum_feas": true,
+        "standard_gap": -5.752212389380531,
+        "quantum_gap": 2.2123893805309733
+      }
+    },
+    {
+      "instance_name": "p0282",
+      "n_variables": 282,
+      "n_constraints": 241,
+      "n_integer_vars": 94,
+      "gurobi_result": {
+        "solver": "gurobi",
+        "obj_value": -7899.413179214345,
+        "time_seconds": 0.013278007507324219,
+        "iterations": 168.0,
+        "status": "optimal",
+        "is_feasible": true,
+        "primal_violation": 0.0,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 0.0
+      },
+      "standard_pdhg_result": {
+        "solver": "standard_pdhg",
+        "obj_value": -7888.318731801014,
+        "time_seconds": 2.955775022506714,
+        "iterations": 1000,
+        "status": "max_iter",
+        "is_feasible": false,
+        "primal_violation": 0.08048869559640082,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 0.1404464757271325
+      },
+      "quantum_pdhg_result": {
+        "solver": "quantum_pdhg",
+        "obj_value": -7887.071906032442,
+        "time_seconds": 4.234267950057983,
+        "iterations": 1000,
+        "status": "max_iter",
+        "is_feasible": true,
+        "primal_violation": 9.865752232940395e-07,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 0.15623025282912115
+      },
+      "summary": {
+        "gurobi_obj": -7899.413179214345,
+        "standard_obj": -7888.318731801014,
+        "quantum_obj": -7887.071906032442,
+        "standard_feas": false,
+        "quantum_feas": true,
+        "standard_gap": 0.1404464757271325,
+        "quantum_gap": 0.15623025282912115
+      }
+    },
+    {
+      "instance_name": "knapsack_50",
+      "n_variables": 50,
+      "n_constraints": 1,
+      "n_integer_vars": 50,
+      "gurobi_result": {
+        "solver": "gurobi",
+        "obj_value": -2051.0,
+        "time_seconds": 0.0005180835723876953,
+        "iterations": 0.0,
+        "status": "optimal",
+        "is_feasible": true,
+        "primal_violation": 0.0,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 0.0
+      },
+      "standard_pdhg_result": {
+        "solver": "standard_pdhg",
+        "obj_value": -2076.0,
+        "time_seconds": 0.5261480808258057,
+        "iterations": 1000,
+        "status": "max_iter",
+        "is_feasible": false,
+        "primal_violation": 3.4000000000000057,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": -1.218917601170161
+      },
+      "quantum_pdhg_result": {
+        "solver": "quantum_pdhg",
+        "obj_value": -2040.0,
+        "time_seconds": 0.6397387981414795,
+        "iterations": 1000,
+        "status": "max_iter",
+        "is_feasible": true,
+        "primal_violation": 0.0,
+        "integrality_violation": 0.0,
+        "gap_to_gurobi": 0.5363237445148707
+      },
+      "summary": {
+        "gurobi_obj": -2051.0,
+        "standard_obj": -2076.0,
+        "quantum_obj": -2040.0,
+        "standard_feas": false,
+        "quantum_feas": true,
+        "standard_gap": -1.218917601170161,
+        "quantum_gap": 0.5363237445148707
+      }
+    }
+  ]
+}

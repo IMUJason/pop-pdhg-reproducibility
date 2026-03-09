@@ -1,0 +1,241 @@
+{
+  "extended": {
+    "wilcoxon_quantum_less_than_standard": {
+      "statistic": 6.0,
+      "p_value": 0.21875
+    },
+    "paired_rows": [
+      {
+        "instance_name": "glass4",
+        "standard_mean_primal_violation": 300000.0,
+        "quantum_mean_primal_violation": 300000.0,
+        "quantum_violation_reduction_pct": 0.0,
+        "winner": "tie"
+      },
+      {
+        "instance_name": "neos-2657525-crna",
+        "standard_mean_primal_violation": 6220.333333333333,
+        "quantum_mean_primal_violation": 2978.3333333333335,
+        "quantum_violation_reduction_pct": 52.11939338727828,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "ic97_potential",
+        "standard_mean_primal_violation": 33.91852195696783,
+        "quantum_mean_primal_violation": 34.748709067499775,
+        "quantum_violation_reduction_pct": -2.447592237613411,
+        "winner": "standard_better"
+      },
+      {
+        "instance_name": "gmu-35-40",
+        "standard_mean_primal_violation": 14.842976837727335,
+        "quantum_mean_primal_violation": 10.335707879985153,
+        "quantum_violation_reduction_pct": 30.366340977409408,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "neos-4338804-snowy",
+        "standard_mean_primal_violation": 1.0,
+        "quantum_mean_primal_violation": 1.0,
+        "quantum_violation_reduction_pct": 0.0,
+        "winner": "tie"
+      },
+      {
+        "instance_name": "mcsched",
+        "standard_mean_primal_violation": 934.6409860771298,
+        "quantum_mean_primal_violation": 1048.3097124914625,
+        "quantum_violation_reduction_pct": -12.161752812855177,
+        "winner": "standard_better"
+      },
+      {
+        "instance_name": "50v-10",
+        "standard_mean_primal_violation": 206.04683452026262,
+        "quantum_mean_primal_violation": 164.67632972879792,
+        "quantum_violation_reduction_pct": 20.078204495491207,
+        "winner": "quantum_better"
+      },
+      {
+        "instance_name": "beasleyC3",
+        "standard_mean_primal_violation": 24.589476315787362,
+        "quantum_mean_primal_violation": 15.812401761331179,
+        "quantum_violation_reduction_pct": 35.69443465057031,
+        "winner": "quantum_better"
+      }
+    ],
+    "quantum_better_instances": 4,
+    "standard_better_instances": 2,
+    "ties": 2
+  },
+  "meta": {
+    "friedman_test": {
+      "statistic": 8.719806763285002,
+      "p_value": 0.12077571269251562
+    },
+    "average_ranks": [
+      {
+        "solver": "quantum_pdhg",
+        "average_rank": 2.3333333333333335,
+        "mean_primal_violation": 50678.9035340372
+      },
+      {
+        "solver": "shade",
+        "average_rank": 2.8333333333333335,
+        "mean_primal_violation": 592943.7092074255
+      },
+      {
+        "solver": "standard_pdhg",
+        "average_rank": 2.8333333333333335,
+        "mean_primal_violation": 51200.86894835374
+      },
+      {
+        "solver": "de",
+        "average_rank": 3.6666666666666665,
+        "mean_primal_violation": 343544.82806152
+      },
+      {
+        "solver": "ga",
+        "average_rank": 4.583333333333333,
+        "mean_primal_violation": 1798125.6857337656
+      },
+      {
+        "solver": "slpso",
+        "average_rank": 4.75,
+        "mean_primal_violation": 184129.6438103833
+      }
+    ],
+    "pairwise_quantum_vs_baselines": [
+      {
+        "baseline_solver": "ga",
+        "statistic": 3.0,
+        "p_value": 0.078125,
+        "quantum_mean_violation": 50678.9035340372,
+        "baseline_mean_violation": 1798125.6857337656,
+        "holm_adjusted_p": 0.3125
+      },
+      {
+        "baseline_solver": "de",
+        "statistic": 4.0,
+        "p_value": 0.109375,
+        "quantum_mean_violation": 50678.9035340372,
+        "baseline_mean_violation": 343544.82806152,
+        "holm_adjusted_p": 0.328125
+      },
+      {
+        "baseline_solver": "slpso",
+        "statistic": 2.0,
+        "p_value": 0.046875,
+        "quantum_mean_violation": 50678.9035340372,
+        "baseline_mean_violation": 184129.6438103833,
+        "holm_adjusted_p": 0.234375
+      },
+      {
+        "baseline_solver": "shade",
+        "statistic": 9.0,
+        "p_value": 0.421875,
+        "quantum_mean_violation": 50678.9035340372,
+        "baseline_mean_violation": 592943.7092074255,
+        "holm_adjusted_p": 0.84375
+      },
+      {
+        "baseline_solver": "standard_pdhg",
+        "statistic": 4.0,
+        "p_value": 0.4375,
+        "quantum_mean_violation": 50678.9035340372,
+        "baseline_mean_violation": 51200.86894835374,
+        "holm_adjusted_p": 0.84375
+      }
+    ],
+    "per_instance_ranks": [
+      {
+        "instance_name": "glass4",
+        "ga_mean_primal_violation": 10782624.47657515,
+        "ga_rank": 6.0,
+        "de_mean_primal_violation": 2055047.2797588345,
+        "de_rank": 4.0,
+        "slpso_mean_primal_violation": 1082400.4179458308,
+        "slpso_rank": 3.0,
+        "shade_mean_primal_violation": 3554522.069929128,
+        "shade_rank": 5.0,
+        "standard_pdhg_mean_primal_violation": 300000.0,
+        "standard_pdhg_rank": 1.5,
+        "quantum_pdhg_mean_primal_violation": 300000.0,
+        "quantum_pdhg_rank": 1.5
+      },
+      {
+        "instance_name": "gmu-35-40",
+        "ga_mean_primal_violation": 94.86678328764361,
+        "ga_rank": 5.0,
+        "de_mean_primal_violation": 75.68535198990735,
+        "de_rank": 4.0,
+        "slpso_mean_primal_violation": 16122.4014839641,
+        "slpso_rank": 6.0,
+        "shade_mean_primal_violation": 46.95622600973936,
+        "shade_rank": 3.0,
+        "standard_pdhg_mean_primal_violation": 14.842976837738325,
+        "standard_pdhg_rank": 2.0,
+        "quantum_pdhg_mean_primal_violation": 10.335707879985376,
+        "quantum_pdhg_rank": 1.0
+      },
+      {
+        "instance_name": "ic97_potential",
+        "ga_mean_primal_violation": 52.49011964735118,
+        "ga_rank": 5.0,
+        "de_mean_primal_violation": 52.029159159960294,
+        "de_rank": 4.0,
+        "slpso_mean_primal_violation": 55.88253082026085,
+        "slpso_rank": 6.0,
+        "shade_mean_primal_violation": 40.49063464679452,
+        "shade_rank": 3.0,
+        "standard_pdhg_mean_primal_violation": 34.39639387425291,
+        "standard_pdhg_rank": 1.0,
+        "quantum_pdhg_mean_primal_violation": 35.44245051845227,
+        "quantum_pdhg_rank": 2.0
+      },
+      {
+        "instance_name": "mcsched",
+        "ga_mean_primal_violation": 235.5288907132908,
+        "ga_rank": 3.0,
+        "de_mean_primal_violation": 46.80334573778191,
+        "de_rank": 1.0,
+        "slpso_mean_primal_violation": 405.4925100329201,
+        "slpso_rank": 4.0,
+        "shade_mean_primal_violation": 140.92460263343582,
+        "shade_rank": 2.0,
+        "standard_pdhg_mean_primal_violation": 934.6409860771298,
+        "standard_pdhg_rank": 5.0,
+        "quantum_pdhg_mean_primal_violation": 1048.3097124914625,
+        "quantum_pdhg_rank": 6.0
+      },
+      {
+        "instance_name": "neos-2657525-crna",
+        "ga_mean_primal_violation": 4000.0,
+        "ga_rank": 4.5,
+        "de_mean_primal_violation": 3333.3333333333335,
+        "de_rank": 3.0,
+        "slpso_mean_primal_violation": 4000.0,
+        "slpso_rank": 4.5,
+        "shade_mean_primal_violation": 2667.6666666666665,
+        "shade_rank": 1.0,
+        "standard_pdhg_mean_primal_violation": 6220.333333333333,
+        "standard_pdhg_rank": 6.0,
+        "quantum_pdhg_mean_primal_violation": 2978.3333333333335,
+        "quantum_pdhg_rank": 2.0
+      },
+      {
+        "instance_name": "neos-4338804-snowy",
+        "ga_mean_primal_violation": 1746.7520337962305,
+        "ga_rank": 4.0,
+        "de_mean_primal_violation": 2713.8374200648273,
+        "de_rank": 6.0,
+        "slpso_mean_primal_violation": 1793.6683916517122,
+        "slpso_rank": 5.0,
+        "shade_mean_primal_violation": 244.14718546842354,
+        "shade_rank": 3.0,
+        "standard_pdhg_mean_primal_violation": 1.0,
+        "standard_pdhg_rank": 1.5,
+        "quantum_pdhg_mean_primal_violation": 1.0,
+        "quantum_pdhg_rank": 1.5
+      }
+    ]
+  }
+}

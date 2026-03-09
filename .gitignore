@@ -1,36 +1,47 @@
-# Python
+# Python environments and caches
+.venv/
+.pytest_cache/
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-env/
-ENV/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
 
-# Results
-results/*.json
-results/*.txt
-*.log
-
-# Data (large files)
-data/*.mps
-data/*.lp
-data/*.mps.gz
-
-# IDE
-.vscode/
+# OS / editors
+.DS_Store
 .idea/
+.vscode/
 *.swp
 *.swo
-*~
 
-# OS
-.DS_Store
-Thumbs.db
+# Local benchmark data
+data/miplib2017/*
+!data/miplib2017/README.md
+!data/miplib2017/knapsack_50.mps
+data/miplib2017_sec/*
+!data/miplib2017_sec/README.md
+!data/README.md
+!data/prepare_repro_data.py
 
-# Gurobi
-*.ilp
-*.sol
-*.mst
-*.prm
+# Derived experiment figures
+experiments/figures/*.pdf
+experiments/figures/*.png
+experiments/results/_smoke_*
+
+# LaTeX build artifacts
+paper/elsarticle/*.aux
+paper/elsarticle/*.bbl
+paper/elsarticle/*.blg
+paper/elsarticle/*.fdb_latexmk
+paper/elsarticle/*.fls
+paper/elsarticle/*.log
+paper/elsarticle/*.out
+paper/elsarticle/*.spl
+paper/elsarticle/main.pdf
+paper/elsarticle/submission/
+paper/elsarticle/submission/final_package/
+paper/elsarticle/submission/*.zip
+
+# Local archive / scratch
+legacy/

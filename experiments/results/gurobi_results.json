@@ -1,0 +1,134 @@
+[
+  {
+    "instance": "adlittle",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -240.62821991027934,
+    "solve_time": 0.00027799999952549115,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": -240.62821991027934,
+    "iterations": 38.0
+  },
+  {
+    "instance": "afiro",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -80.32355691394422,
+    "solve_time": 8.487500235787593e-05,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": -80.32355691394422,
+    "iterations": 15.0
+  },
+  {
+    "instance": "blend",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -345.75393245043415,
+    "solve_time": 0.00039329100036411546,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": -345.75393245043415,
+    "iterations": 52.0
+  },
+  {
+    "instance": "sc105",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -294.42930142864253,
+    "solve_time": 0.0006388330002664588,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": -294.42930142864253,
+    "iterations": 69.0
+  },
+  {
+    "instance": "sc50a",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -181.53921661704828,
+    "solve_time": 0.0001168750022770837,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": -181.53921661704828,
+    "iterations": 10.0
+  },
+  {
+    "instance": "share1b",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -321.4324515025608,
+    "solve_time": 0.0014017079993209336,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": -321.4324515025608,
+    "iterations": 133.0
+  },
+  {
+    "instance": "assignment_50x50",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": 0.0,
+    "solve_time": 0.00023508400045102462,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": 0.0,
+    "iterations": 0.0
+  },
+  {
+    "instance": "knapsack_50",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -2051.0,
+    "solve_time": 0.0002112500005750917,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": -2061.671428571429,
+    "iterations": 0.0
+  },
+  {
+    "instance": "p0033",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -68.0,
+    "solve_time": 0.00011425000047893263,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": -79.94625874145905,
+    "iterations": 0.0
+  },
+  {
+    "instance": "p0201",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -226.0,
+    "solve_time": 0.0034029999987978954,
+    "node_count": 1,
+    "gap": 0.0,
+    "lp_relaxation": -238.34788108456974,
+    "iterations": 77.0
+  },
+  {
+    "instance": "p0282",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": -7899.413179214345,
+    "solve_time": 0.005415332998381928,
+    "node_count": 1,
+    "gap": 0.0,
+    "lp_relaxation": -7899.4136181494205,
+    "iterations": 168.0
+  },
+  {
+    "instance": "setcover_50x200",
+    "solver": "gurobi",
+    "status": "optimal",
+    "objective": 0.0,
+    "solve_time": 3.8416997995227575e-05,
+    "node_count": 0,
+    "gap": 0.0,
+    "lp_relaxation": 0.0,
+    "iterations": 0.0
+  }
+]

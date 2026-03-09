@@ -1,198 +1,140 @@
-# Quantum-Inspired Population PDHG for MIP
+# HP-PDHG Plan 1 Reproducibility Repository
 
-**Minimum Reproducible Package for Pop-PDHG**
+This directory is the minimal reproducibility workspace for the Plan 1 paper and codebase. It contains:
 
-This repository contains the minimal code necessary to reproduce the key results from the paper "Quantum Tunneling for Discrete Optimization: A Population-Based Primal-Dual Framework".
+- the current solver implementation in `src/`
+- the experiment scripts and archived result tables in `experiments/`
+- the paper source in `paper/elsarticle/`
+- lightweight tests in `tests/`
 
-## Overview
+Official MIPLIB instances are **not version-controlled** in this repository. Readers can download them from the official MIPLIB website and place them in the expected local directories with the helper script in `data/prepare_repro_data.py`.
 
-Pop-PDHG combines population-based optimization with the Primal-Dual Hybrid Gradient (PDHG) method for solving Mixed Integer Programming (MIP) problems. The algorithm uses quantum-inspired WKB tunneling to escape local minima and progressive measurement to extract integer-feasible solutions.
+## Repository layout
 
-## Installation
+```text
+.
+├── README.md
+├── LICENSE
+├── pyproject.toml
+├── uv.lock
+├── src/                     # solver implementation
+├── experiments/
+│   ├── scripts/            # benchmark / ablation / sensitivity entry points
+│   └── results/            # archived paper results used by the manuscript
+├── data/
+│   ├── prepare_repro_data.py
+│   ├── miplib2017/         # main benchmark data directory
+│   └── miplib2017_sec/     # official 12-instance extension directory
+├── tests/
+└── paper/elsarticle/       # current paper source
+```
 
-### Requirements
+## Environment setup
+
+Requirements:
 
 - Python 3.10+
-- NumPy >= 1.24.0
-- SciPy >= 1.11.0
-- Gurobi >= 11.0 (for comparison and MPS reading)
+- `uv` for environment management
+- Gurobi installed and licensed locally
 
-### Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/pop-pdhg-reproducibility.git
-cd pop-pdhg-reproducibility
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### Gurobi License
-
-This code uses Gurobi for reading MPS files and computing optimal baselines.
-- Academic users can obtain a free license from https://www.gurobi.com/academia/
-- Install the license: `grbgetkey YOUR_LICENSE_KEY`
-
-## Quick Start
-
-### Run Simple Example
+Setup:
 
 ```bash
-# Run on p0282 instance (included in data/)
-python examples/run_p0282.py
+uv sync --extra dev
 ```
 
-This will:
-1. Load the p0282 problem from MIPLIB 2017
-2. Run Pop-PDHG for 100 iterations
-3. Compare results with Gurobi optimal
-4. Save results to `results/p0282_result.json`
+## Data policy
 
-### Expected Output
-
-```
-Problem: p0282
-Variables: 282 (94 integer)
-Constraints: 241
-
-Pop-PDHG Results:
-  Best objective: -7899.66
-  Gap: 0.0032%
-  Feasible: True
-  Time: 10.5s
-
-Gurobi Optimal: -7899.413179214345
-```
-
-## Repository Structure
-
-```
-.
-├── README.md                 # This file
-├── requirements.txt          # Python dependencies
-├── src/                      # Source code
-│   ├── core/                # Core components
-│   │   ├── mps_reader.py   # MPS file reader
-│   │   └── pdhg.py         # Standard PDHG solver
-│   ├── population/          # Population-based methods
-│   │   ├── pop_pdhg.py     # Population PDHG
-│   │   ├── interference.py # Quantum interference operators
-│   │   └── measurement.py  # Progressive measurement
-│   └── optimization/        # Optimization utilities
-│       └── shade_mip.py    # SHADE comparison
-├── data/                    # Test instances
-│   └── p0282.mps           # Sample MIPLIB instance
-├── examples/                # Example scripts
-│   ├── run_p0282.py        # Main reproduction script
-│   └── compare_methods.py  # Comparison with SHADE
-└── results/                 # Output directory
-```
-
-## Reproducing Paper Results
-
-### Figure 3: Feasibility vs Quality Trade-off
+- `data/miplib2017/knapsack_50.mps` is kept in the repository because it is a small custom synthetic benchmark used in the paper.
+- Official MIPLIB instances such as `p0033`, `p0201`, `p0282`, and the 12-instance extension subset are **not uploaded**.
+- To prepare local data, run:
 
 ```bash
-python examples/generate_figure3.py
+uv run python data/prepare_repro_data.py --paper-suite
 ```
 
-This generates the scatter plot comparing Pop-PDHG and SHADE on p0282.
+This downloads the required official instances from the official MIPLIB websites:
 
-### Table 1: Performance Comparison
+- legacy library links page: `https://miplib.zib.de/links.html`
+- MIPLIB 2010 archive home: `https://miplib2010.zib.de`
+- official instance index: `https://miplib.zib.de/instances/index.html`
+- MIPLIB 2017 download page: `https://miplib.zib.de/download.html`
+
+The helper script fetches the main audited instances (`p0033`, `p0201`, `p0282`) from the legacy ZIB MIPLIB archive and the 12-instance extension subset from the MIPLIB 2017 instance server:
+
+- `https://miplib2010.zib.de/miplib2/miplib/`
+- `https://miplib.zib.de/WebData/instances/`
+
+## Minimal verification
+
+Run the lightweight self-check first:
 
 ```bash
-python examples/compare_methods.py
+uv run pytest tests/test_pdhg.py -v
 ```
 
-This compares Pop-PDHG with SHADE and standard PDHG on multiple metrics.
+Then run a paper-relevant smoke benchmark:
 
-## Key Parameters
-
-### Pop-PDHG Parameters
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `population_size` | 16 | Number of population members |
-| `max_iterations` | 10000 | Maximum PDHG iterations |
-| `tunnel_strength` | 0.1 | WKB tunneling strength |
-| `measure_strength` | 1.0 | Progressive measurement strength |
-
-### SHADE Parameters
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `population_size` | 100 | Population size |
-| `max_evals` | 100000 | Maximum function evaluations |
-| `penalty_factor` | 10000 | Constraint penalty factor |
-
-## Data Availability
-
-The experimental results used in the paper are available in:
-- `results/p0282_pop_pdhg_results.json`: 30 independent runs of Pop-PDHG
-- `results/p0282_gurobi_optimal.json`: Gurobi optimal solution
-
-These can be used to reproduce Figure 3 without re-running experiments.
-
-## Paper Data Verification
-
-| Claim | Verified | Source |
-|-------|----------|--------|
-| Pop-PDHG: 0.0032% gap | ✓ | 30-run average |
-| Pop-PDHG: 0.182 violation | ✓ | 30-run average |
-| SHADE: 87.8% gap | ✓ | 30-run average |
-| SHADE: 100% feasible | ✓ | 30/30 runs |
-| Gurobi: -7899.41 optimal | ✓ | Verified |
-
-## Troubleshooting
-
-### Gurobi License Issues
-
-If you see "License expired" or similar errors:
 ```bash
-# Check Gurobi installation
-python -c "import gurobipy; print(gurobipy.gurobi.version())"
-
-# Renew academic license
-grbgetkey YOUR_NEW_LICENSE_KEY
+uv run python experiments/scripts/run_main_benchmark_robustness.py \
+  --instances p0033 knapsack_50 \
+  --seeds 11 17 \
+  --max-iter 300 \
+  --population-size 8
 ```
 
-### Memory Issues
+## Reproducing the paper workflow
 
-For large instances, reduce population size:
-```python
-from src.population.pop_pdhg import PopPDHG
+### 1. Audited main benchmark robustness
 
-solver = PopPDHG(population_size=8)  # Reduce from 16
+```bash
+uv run python experiments/scripts/run_main_benchmark_robustness.py
 ```
 
-## Citation
+### 2. Ablation study
 
-If you use this code, please cite:
-
-```bibtex
-@article{pop_pdhg_2024,
-  title={Quantum Tunneling for Discrete Optimization: A Population-Based Primal-Dual Framework},
-  journal={Swarm and Evolutionary Computation},
-  year={2024}
-}
+```bash
+uv run python experiments/scripts/run_ablation_study.py
 ```
 
-## License
+### 3. Parameter sensitivity
 
-MIT License - See LICENSE file for details.
+```bash
+uv run python experiments/scripts/parameter_sensitivity.py --plot-only
+```
 
-## Contact
+### 4. Official MIPLIB 2017 extension
 
-For questions about the code, please open an issue on GitHub.
+```bash
+uv run python experiments/scripts/run_sec_extended_benchmark.py \
+  --manifest experiments/results/sec_selected_instances.json
+```
 
-For questions about the paper, please contact the authors.
+### 5. Population-based baseline comparison
 
-## Acknowledgments
+```bash
+uv run python experiments/scripts/run_sec_metaheuristics.py \
+  --manifest experiments/results/sec_selected_instances.json
+```
 
-- MIPLIB 2017 for providing benchmark instances
-- Gurobi Optimization for the academic license
+### 6. Compile the manuscript
+
+```bash
+cd paper/elsarticle
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+```
+
+## Notes on reproducibility
+
+- The archived `experiments/results/` files are the result tables and JSON/CSV artifacts used to build the current manuscript figures.
+- The figure-generation script used by the paper lives in `paper/elsarticle/figures/make_figures.py`.
+- The manuscript entry point is `paper/elsarticle/main.tex`.
+- The current paper uses the ESWA-oriented framing, but the underlying implementation still contains some legacy names such as `Quantum Pop-PDHG` in code and archived results for continuity.
+
+## Suggested starting points
+
+- solver core: `src/population/quantum_pop_pdhg.py`
+- audited benchmark: `experiments/scripts/run_main_benchmark_robustness.py`
+- official extension: `experiments/scripts/run_sec_extended_benchmark.py`
+- metaheuristic comparison: `experiments/scripts/run_sec_metaheuristics.py`
+- manuscript source: `paper/elsarticle/main.tex`
